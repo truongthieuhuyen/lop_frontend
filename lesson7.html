@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+				<span>1. Viết hàm kiểm tra năm nhuậnv với tham số đầu vào là 1 năm hợp lệ. Nếu là năm nhuận in ra màn hình console theo cú pháp "Năm XXXX là năm nhuận", ngược lại in ra màn hình console "Năm XXXX không phải là năm nhuận".
+				Gợi ý thuật toán kiểm tra năm nhuận: 
+				-  Năm chia hết cho 400 thì chắc chắn là năm nhuận
+				- NăM không chia hết cho 400 nhưng thoả mãn "chia hết cho 4 nhưng không chia hết cho 100" cũng là năm nhuận.
+				<br>
+				2. Viết một hàm chuyển đổi từ số sang tên tháng. Ví dụ nếu tham đố đầu vào là số 1 thì in ra màn console là "Tháng Một". Nếu nhập một số không phải là một tháng hợp lệ thì in ra "Tháng không tồn tại"</span>
+	<script >
+		
+		function checkNamNhuan(x) {
+			// body...
+		
+			if (x%400==0) {
+				console.log("năm "+x+" là năm nhuận");
+			}else if ((x%4==0)&&(x%10!=0)) {
+				console.log("năm "+x+" là năm nhuận");
+			}else { 
+			console.log("năm "+x+" không là năm nhuận");
+			}
+		}
+		
+		
+        function checkThang(m) {
+        	switch(m){
+        	case 1:
+        	console.log("tháng một");
+        	break;
+        	case 2:
+        	console.log("tháng hai");
+        	break;
+        	case 3:
+        	console.log("tháng ba");
+        	break;
+        	case 4:
+        	console.log("tháng tư");
+        	break;
+        	case 5:
+        	console.log("tháng năm");
+        	break;
+        	case 6:
+        	console.log('tháng sáu');
+        	break;
+        	default:console.log('tháng k hợp lệ');
+        }
+        }
+        checkThang(2);
+        checkThang(8);
+        checkNamNhuan(2020);
+	</script>
+</body>
+</html>
