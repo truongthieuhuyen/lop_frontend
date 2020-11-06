@@ -1,4 +1,4 @@
-let countdownSecond = 6912;
+let countdownSecond = 432000;
 let boughtCourseNumber = 0;
 
 // padding 0 to time unit
@@ -13,12 +13,12 @@ function setCountDownFlashSale(second) {
 		clearInterval(countdownInterval);
 	}
 
-	// var day = Math.floor(second/86400);
-	var hours = Math.floor(second/3600);
-	var minutes = Math.floor(second% 3600/60);
-	var seconds = second  - hour*3600 - minute*60;
+	var days = Math.floor(second/86400);
+	var hours = Math.floor((second %86400) / 3600);
+	var minutes = Math.floor((second % 3600) / 60);
+    var seconds = second - days * 86400 - hours * 3600 - minutes * 60;
 
-	// document.getElementById('day').innerHTML = paddingZero(day);
+	document.getElementById('day').innerHTML = paddingZero(days);
 	document.getElementById('hour').innerHTML = paddingZero(hours);
 	document.getElementById('minute').innerHTML = paddingZero(minutes);
 	document.getElementById('second').innerHTML = paddingZero(seconds);
@@ -28,25 +28,28 @@ function setCountDownFlashSale(second) {
 countdownInterval = setInterval(function () {
 	setCountDownFlashSale(countdownSecond--);
 }, 1000);
-	
 
+	
+// --------------------------------------------------------------------------
 // handle purchase proof animation
-setTimeOut(function () {
+setTimeout(function () {
 	document.getElementById('purchase-item').style.opacity = "1";
 	document.getElementById('purchase-item').style.bottom = "50px"
 }, 10000);
 
-setTimeOut(function () {
+setTimeout(function () {
 	document.getElementById('purchase-item').style.opacity = "0";
 	document.getElementById('purchase-item').style.bottom = "-200px";
-	// body...
 }, 15000);
 
 // handle buy a course event
 function addToCart(event) {
 	event.target.style.display = "none";
-	document.getElementById('bough-number').innerHTML = ++boughtCourseNumber;
+	document.getElementById('bought-number').innerHTML = ++boughtCourseNumber;
 };
+
+
+//---------------------------------------------------------------------------
 //validate form
 function validateForm() {
 	let arrId = ['fullname','email','age','phone'];
@@ -65,7 +68,7 @@ function validateForm() {
 
 //validate input
 function validateInput(id) {
-	let input = document.getElementById('id');
+	let input = document.getElementById(id);
 	let inputValue = input.value;
 	if (!inputValue) {
 		input.style.borderColor = 'red';

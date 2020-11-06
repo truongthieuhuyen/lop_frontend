@@ -35,9 +35,10 @@
 			<div class="flashSale-content">
 				<p>Flash Sale 11/11 - Shopee Super Sale</p>
 				<div class="flashSale-countdown">
-					<span class="countdown-item">00</span>
-					<span class="countdown-item">00</span>
-					<span class="countdown-item">00</span>
+					<span class="countdown-item" id="day">00</span>
+					<span class="countdown-item" id="hour">00</span>
+					<span class="countdown-item" id="minute">00</span>
+					<span class="countdown-item" id="second">00</span>
 
 				</div>
 			</div>
@@ -148,19 +149,19 @@
 					<form>
 						<div class="form-item">
 							<label for="fullname">Full name</label>
-							<input onkeyup="validateInput('fullname')" type="text" name="fullname" placeholder="Full name">
+							<input onkeyup="validateInput('fullname')" type="text" id="fullname" placeholder="Full name">
 						</div>
 						<div class="form-item">
 							<label for="email">Email</label>
-							<input onkeyup="validateInput('email')" type="email" name="email" placeholder="Email">
+							<input onkeyup="validateInput('email')" type="email" id="email" placeholder="Email">
 						</div>
 						<div class="form-item">
 							<label for="age">Age</label>
-							<input onkeyup="validateInput('age')" type="number" name="age" placeholder="Age" min="1">
+							<input onkeyup="validateInput('age')" type="number" id="age" placeholder="Age" min="1">
 						</div>
 						<div class="form-item">
 							<label for="phone">Phone</label>
-							<input onkeyup="validateInput('phone')" type="number" name="phone" placeholder="Phone" maxlength ="20">
+							<input onkeyup="validateInput('phone')" type="number" id="phone" placeholder="Phone" maxlength ="20">
 						</div>
 						<button onclick="validateForm()" type="button" class="btn-register" style="float: right;margin-top: 10px;">Register Now</button>
 					</form>
